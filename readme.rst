@@ -6,6 +6,7 @@ This is a basic to do app in django. Its meant to be a more complicated hello wo
 Getting setup
 -------------
 
+::
     virtualenv --no-site-packages venv
     source venv/bin/activate
     pip install -r requirements.txt
@@ -15,6 +16,7 @@ Getting setup
 Deploying to Heroku
 -------------------
 
+::
     heroku create -s cedar
     git push heroku master
     heroku run python app/manage.py syncdb
