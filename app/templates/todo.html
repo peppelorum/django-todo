@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="span10 columns offset2">
+	<h2>Add a new Task: </h2>
+	  <form method="POST" action=".">
+	  	{% csrf_token %}
+		<input id="name" type="text" name="name" maxlength="100" />
+		<input type="submit">
+	  </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span10 columns offset2">
+      <h1>Current Tasks</h1>
+
+      <table id="task_list">
+        <tr>
+          <th>Name</th>
+          <th>Finished?</th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        {% for task in tasks %}
+        <tr>
+          <td width="250px">{{task.name}}</td>
+          <td width="150px">{{task.finished}}</td>
+          <td>
+			<form method="GET" action="/{{task.id}}/">
+				{% csrf_token %}
+				<input type="submit" value="Complete" class="btn primary">
+			</form>
+          </td>
+          <td>
+			<form method="POST" action="/{{task.id}}/">
+				{% csrf_token %}
+				<input type="submit" value="Delete" class="btn danger">
+			</form>
+          </td>
+        </tr>
+		{% endfor %}
+      </table>
+      <br />
+    </div>
+  </div>
+</div>
+
+{% endblock %}
