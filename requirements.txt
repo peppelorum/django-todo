@@ -3,3 +3,4 @@ dj-database-url
 psycopg2==2.4.2
 wsgiref==0.1.2
 django-sliver
+django-social-auth

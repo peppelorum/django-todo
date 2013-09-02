@@ -110,7 +110,23 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'todo',
+    'social_auth',
 )
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.twitter.TwitterBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'social_auth.context_processors.social_auth_by_type_backends',
+)
+
+TWITTER_CONSUMER_KEY         = 'MocQ0g4MmLeGCrFyv8YA'
+TWITTER_CONSUMER_SECRET      = 'c6mv8kXg5XhAGwFqe0hWEQ2tiGNDWtThvQT0tsYizoM'
+
+LOGIN_REDIRECT_URL = '/'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
