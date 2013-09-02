@@ -11,8 +11,8 @@ Getting setup
     virtualenv --no-site-packages venv
     source venv/bin/activate
     pip install -r requirements.txt
-    python app/manage.py syncdb
-    python app/manage.py runserver
+    python todoapp/manage.py syncdb
+    python todoapp/manage.py runserver
 
 Deploying to Heroku
 -------------------
@@ -21,6 +21,6 @@ Deploying to Heroku
 
     heroku create -s cedar
     git push heroku master
-    heroku run python app/manage.py syncdb
+    heroku run python todoapp/manage.py syncdb
     heroku open
 
