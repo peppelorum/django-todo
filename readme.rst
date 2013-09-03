@@ -19,7 +19,7 @@ Deploying to Heroku
 
 ::
 
-    heroku create -s cedar
+    heroku create
     git push heroku master
     heroku run python todoapp/manage.py syncdb
     heroku open
